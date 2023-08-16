@@ -8,35 +8,28 @@ export default function Root() {
   //   const { apps } = useLoaderData();
   return (
     <div className="container">
-      <h1 className="title text-center">Apps Dashboard</h1>
-
-      <nav className="navbar">
-        {/* {apps.length ? (
-          <ul>
-            {apps.map((app) => (
-              <li key={app.id}>
-                <Link to={`apps/${app.id}`}>{app.name}</Link>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No apps!</p>
-        )} */}
-
-        <ul className="d-grid">
-          <li>
-            <Link to={`App1/`}>
-              <div className="card">
-                <div className="card-body">SSR</div>
-              </div>
+      <nav className="navbar bg-dark text-light">
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <Link className="nav-link" to="/">
+              Home
             </Link>
           </li>
-          <li>
-            <Link to={`apps/2`}>App 2</Link>
-          </li>{" "}
-          {/* <li>
-            <Link to={`App1/`}>SSR</Link>
-          </li> */}
+          <li className="nav-item">
+            <Link className="nav-link" to="/about">
+              About
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/dashboard">
+              Dashboard
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/nothing-here">
+              Nothing Here
+            </Link>
+          </li>
         </ul>
       </nav>
       <div className="container apps-container">
@@ -45,7 +38,3 @@ export default function Root() {
     </div>
   );
 }
-// export async function loader() {
-//   const apps = await getApps();
-//   return { apps };
-// }

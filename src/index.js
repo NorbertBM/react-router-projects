@@ -1,35 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
-// import App from "./App";
-import Root, { loader as rootLoader } from "./routes/root";
-import ErrorPage from "./error-page";
 
-import Apps from "./routes/apps";
-import App1 from "./projects/Simple-SSR-Website/App1";
-import About from "./projects/Simple-SSR-Website/App1/About";
+import App from "./App";
+import Root from "./routes/root";
+import ErrorElement from "./error-page";
+// Create the router
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./routes/pages/home";
+import About from "./routes/pages/about";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    // element: <div>Hello world!</div>,
     element: <Root />,
-    errorElement: <ErrorPage />,
-    // loader: rootLoader,
+    errorElement: <ErrorElement />,
     children: [
       {
-        path: "apps/:appId",
-        element: <Apps />,
+        path: "/",
+        element: <Home />,
       },
       {
-        path: "App1/",
-        element: <App1 />,
-        children: [
-          {
-            path: "App1/:about",
-            element: <About />,
-          },
-        ],
+        path: "/about",
+        element: <About />,
       },
     ],
   },
