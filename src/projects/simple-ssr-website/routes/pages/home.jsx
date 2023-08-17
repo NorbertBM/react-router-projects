@@ -1,17 +1,12 @@
 import React from "react";
 import { Title } from "../../components/componentsLibrary";
 import { PageWrapper } from "../../components/styles/PageWrapper";
-
-import { useLoaderData } from "react-router-dom";
-
 export default function Home() {
-  let { data } = useLoaderData();
-
   return (
     <PageWrapper>
       <div className="container">
         <Title text={"Welcome to our home page"} />
-        <h4>Loader data : {data.data}</h4>
+
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
           consequatur quos facilis ullam quisquam molestias veritatis omnis

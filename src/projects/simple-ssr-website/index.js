@@ -13,7 +13,6 @@ import Dashboard from "./routes/pages/dashboard";
 import Private from "./routes/pages/dashboardPrivate";
 import DashboardEnterprise from "./routes/pages/dashboardEnterprise";
 import IndexRoute from "./routes/indexRoute";
-import { homeLoader } from "./routes/loaders";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +23,6 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader: homeLoader,
         element: <Home />,
       },
       {
