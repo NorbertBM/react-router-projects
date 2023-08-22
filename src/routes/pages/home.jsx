@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Title } from "../../components/componentsLibrary";
 import { PageWrapper } from "../../components/styles/PageWrapper";
 
 import { useLoaderData } from "react-router-dom";
-
+import { spinnerLoader } from "../loaders";
 export default function Home() {
-  let { data } = useLoaderData();
+  let data = useLoaderData();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    data.data && setIsLoading(false);
+  }, [data]);
 
   return (
     <PageWrapper>
       <div className="container">
+        {!isLoading && spinnerLoader()}
         <Title text={"Welcome to our home page"} />
-        <h4>Loader data : {data.data}</h4>
+        isLoading
+        {!isLoading && <h4>Loader data : {data.data}</h4>}
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
           consequatur quos facilis ullam quisquam molestias veritatis omnis

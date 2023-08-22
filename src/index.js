@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import App from "./App";
 import Root from "./routes/root";
 import ErrorElement from "./error-page";
 // Create the router
@@ -13,7 +12,7 @@ import Dashboard from "./routes/pages/dashboard";
 import Private from "./routes/pages/dashboardPrivate";
 import DashboardEnterprise from "./routes/pages/dashboardEnterprise";
 import IndexRoute from "./routes/indexRoute";
-import { homeLoader } from "./routes/loaders";
+import { homeLoader, dashboardLoader } from "./routes/loaders";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +33,8 @@ const router = createBrowserRouter([
 
       {
         path: "/dashboard",
+        loader: dashboardLoader,
         element: <Dashboard />,
-
         errorElement: <ErrorElement />,
         children: [
           { index: true, element: <IndexRoute /> },

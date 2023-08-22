@@ -5,6 +5,7 @@ const rand = () => Math.round(Math.random() * 100);
 
 export async function homeLoader() {
   await sleep();
+
   return { data: `Home loader - random value ${rand()}` };
 }
 export async function dashboardLoader() {
@@ -15,4 +16,8 @@ export async function dashboardLoader() {
 export async function redirectLoader() {
   await sleep();
   return redirect("/");
+}
+
+export function spinnerLoader() {
+  return <span class="loader"></span>;
 }
